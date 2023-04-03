@@ -12,6 +12,7 @@ export default function Home() {
 
   const [name, setName] = useState("")
   const [username, setUsername] = useState("")
+  const [newUsername, setNewUsername] = useState("")
  return <>
       <div>
         <input type='text ' placeholder="Name.."  onChange={(e)=> setName(e.target.value)}/>
@@ -27,7 +28,12 @@ export default function Home() {
           return <div key={user.id}>
           <h1>{user.name}</h1>
           <h1>{user.username}</h1>
-          <input type = "text" placeholder="new user name" />
+          <input type = "text" placeholder="new user name" onChange={(e) => {
+            setNewUsername(e.target.value)
+          }} />
+           <button>
+            Update User
+           </button>
           <button onClick={() =>(
             dispatch(deleteUser({id:user.id}))
           )}>
