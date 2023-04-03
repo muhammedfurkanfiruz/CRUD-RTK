@@ -1,6 +1,6 @@
 
 import { useSelector, useDispatch } from "react-redux"
-import { addUser, deleteUser } from "../features/Users"
+import { addUser, deleteUser, updateUsername, updateUsernamedateUsername } from "../features/Users"
 import { useState } from "react"
 
 
@@ -31,7 +31,11 @@ export default function Home() {
           <input type = "text" placeholder="new user name" onChange={(e) => {
             setNewUsername(e.target.value)
           }} />
-           <button>
+           <button
+           onClick={() => {
+            dispatch(updateUsername({id: user.id, username: newUsername}))
+           }}
+           >
             Update User
            </button>
           <button onClick={() =>(
