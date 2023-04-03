@@ -30,7 +30,8 @@ export default function Home() {
           placeholder="UserName.."
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button
+        <button 
+        className="btn "
           onClick={() => {
             dispatch(
               addUser({
